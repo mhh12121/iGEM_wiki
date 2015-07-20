@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+$(document).ready(function(){
 	var slidesWrapper = $('.cd-hero-slider');
 	var winHeight=$(window).height();
 	$(".cd-hero-slider").height(winHeight);
@@ -6,13 +6,21 @@ jQuery(document).ready(function($){
 		winHeight=$(window).height();
 		$(".cd-hero-slider").height(winHeight);
 	})
-	
+	/*头部鼠标特效*/
+	$(".cd-primary-nav ul li").each(function(){
+		$(this).hover(function(){
+
+			$(this).addClass("li_choose");
+			$(this).siblings().removeClass("li_choose");
+
+		})
+	})
 	var scroll_height=winHeight;
 	$(document).bind("scroll",function(){
 		if($(window).scrollTop()>=scroll_height){
-			$(".header-nav").css({"position":"fixed"});
+			$(".header-nav").addClass("scroll");
 		}else{
-			$(".header-nav").css({"position":"absolute"});
+			$(".header-nav").removeClass("scroll");
 		}
 	})
 	$(".dou_m_c_pic_half").hover(function(){
